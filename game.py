@@ -22,7 +22,7 @@ def sportquestion():
     6: ["How many world titles has Lionel Messi won? \n A. 35"]
   }
 
-  return dictionary[random.randint(1,2)]
+  return dictionary[random.randint(1,6)]
 
 
 

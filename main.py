@@ -1,7 +1,7 @@
 import discord
 import os
 import keep_alive
-import game
+from game import * 
 import time
 import discord.ext
 from discord.utils import get
@@ -21,7 +21,8 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-    await ctx.send("pong!") #simple command so that when you type "!ping" the bot will respond with "pong!"
+    temp = sportquestion()
+    await ctx.send(temp[0]) #simple command so that when you type "!ping" the bot will respond with "pong!"
 
 @client.command()
 async def debug(ctx):
@@ -46,8 +47,7 @@ async def kick(ctx, member : discord.Member):
     
 keep_alive.keep_alive()
 
-
-client.run("ODgzNTExNzQ5NTkxMDU2Mzk0.YTLAbw.1vI3F0Gtgxc5FXh6kF-2Na-Kk-I") #get your bot token and create a key named `TOKEN` to the secrets panel then paste your bot token as the value. 
+client.run(os.environ['token']) #get your bot token and create a key named `TOKEN` to the secrets panel then paste your bot token as the value. 
 #to keep your bot from shutting down use https://uptimerobot.com then create a https:// monitor and put the link to the website that appewars when you run this repl in the monitor and it will keep your bot alive by pinging the flask server
 #enjoy!
 
